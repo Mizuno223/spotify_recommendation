@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/" => "home#top"
 
   get "musics/search" => "musics#search"
+  get "musics/input" => "musics#input" 
 end
