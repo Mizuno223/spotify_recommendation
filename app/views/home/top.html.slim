@@ -1,5 +1,5 @@
 h1
-  | Spotify api
-= form_tag("/musics/search") do
-  textarea[name="artist"]
-  input[type="submit" value="検索"]
+  | Spotify reccomendation
+= link_to '検索', '/musics/search' 
+br
+= link_to 'おすすめの曲', '/musics/input'
