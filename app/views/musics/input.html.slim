@@ -1,18 +1,19 @@
-- n = 0
 h3
-  = n+1
-  | 人目を入力
+  | アーティストを3組入力
 = form_with url: "/musics/input", method: :get, local: true do |form|
-  = form.text_field :search
+  = form.text_field :input1
+  br
+  = form.text_field :input2
+  br
+  = form.text_field :input3
+  br
   = form.submit '検索', name: nil
 h1
   | 検索結果
-- if @searchartist.present?
-  - @searchartist.genres.each do |searchartist|
-    - if n == 0
-      - genres = searchartist
-      - n = n + 1
-    - elsif n <= 2
-      - genres.push(searchartist)
-      = genres
-      - n = n + 1
+  = @genres
+- if @recommendations.present?
+  /- @recommendations.each do |recommendation|
+    h3 
+      = recommendation.name
+  h3 
+    = @recommendations.tracks.map {|track| [track.artists.first.name, track.name].join('/')}
