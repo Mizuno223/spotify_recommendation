@@ -73,3 +73,6 @@ end
 
 gem 'rspotify'
 gem 'dotenv-rails'
+
+gem 'slim'
+gem 'html2slim'
