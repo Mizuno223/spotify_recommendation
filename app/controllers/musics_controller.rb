@@ -18,12 +18,13 @@ class MusicsController < ApplicationController
             #重複してるジャンルを取り出す
             duplicateGenre = [@searchartist1.genres, @searchartist2.genres, @searchartist3.genres].inject(&:&)
             
-            #重複していないジャンルから合計5個になるようにランダムに取り出す
+            #重複していないジャンルランダムに取り出す
             genres = [@searchartist1.genres, @searchartist2.genres, @searchartist3.genres].flatten!
             counts = Hash.new(0)
             genres.each { |v| counts[v] += 1 }
             uniqueGenre = counts.select { |v, count| count == 1 }.keys
 
+            #重複してるジャンルを優先して5つのジャンルを指定する
             @genres = duplicateGenre.push(uniqueGenre.sample(5 - duplicateGenre.length)).flatten!
             @recommendations = RSpotify::Recommendations.generate(seed_genres: @genres)
         end
