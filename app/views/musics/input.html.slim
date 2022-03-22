@@ -9,7 +9,7 @@ h3
   br
   = form.submit '検索', name: nil
 h1
-  | 検索結果
+  | おすすめの曲
 /  br
   = @searchartist1.genres
   br
@@ -19,5 +19,5 @@ h1
   br
   = @genres
 - if @recommendations.present?
-  h3 
+  h3
     = @recommendations.tracks.map {|track| [track.artists.first.name, track.name].join('/')}
