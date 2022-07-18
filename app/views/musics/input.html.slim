@@ -10,11 +10,12 @@ h3
   = form.submit '検索', name: nil
 
 - if @recommendations.present?
-  h1
-  | おすすめの曲
-
   h3
-    = @recommendations.tracks.map {|track| [track.artists.first.name, track.name].join('/')}
+   | おすすめの曲
+
+  - @recommendations.each do |recommendations|
+    p 
+      = recommendations
 
 - if @message.present?
   h3 
