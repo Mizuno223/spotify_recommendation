@@ -1,5 +1,5 @@
 class MusicsController < ApplicationController
-    
+
     def index
     end
 
@@ -27,6 +27,8 @@ class MusicsController < ApplicationController
             #重複してるジャンルを優先して5つのジャンルを指定する
             @genres = duplicateGenre.push(uniqueGenre.sample(5 - duplicateGenre.length)).flatten!
             @recommendations = RSpotify::Recommendations.generate(seed_genres: @genres)
+        else
+            @message = '入力してください'
         end
     end
 end

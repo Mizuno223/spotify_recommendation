@@ -8,16 +8,14 @@ h3
   = form.text_field :input3
   br
   = form.submit '検索', name: nil
-h1
-  | おすすめの曲
-/  br
-  = @searchartist1.genres
-  br
-  = @searchartist2.genres
-  br
-  = @searchartist3.genres
-  br
-  = @genres
+
 - if @recommendations.present?
+  h1
+  | おすすめの曲
+
   h3
     = @recommendations.tracks.map {|track| [track.artists.first.name, track.name].join('/')}
+
+- if @message.present?
+  h3 
+    = @message
