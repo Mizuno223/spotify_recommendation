@@ -1,0 +1,3 @@
+# spotify_recommendation
+spotifyのapiを用いておすすめの曲を表示する  
+好きなアーティストを3組入力すると同じジャンルの曲をランダムに表示する
